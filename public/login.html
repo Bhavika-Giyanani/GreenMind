@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+        .generic-error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        // Function to clear error messages and reset styles
+        function clearErrors() {
+            document.getElementById('usernameError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+
+            document.getElementById('username').style.borderColor = '';
+            document.getElementById('password').style.borderColor = '';
+
+            const genericErrorContainer = document.getElementById('genericError');
+            if (genericErrorContainer) {
+                genericErrorContainer.remove(); // Remove previous generic error if it exists
+            }
+        }
+
+        // Function to display a generic error message
+        function displayGenericError(message) {
+            let genericError = document.getElementById('genericError');
+            if (!genericError) {
+                genericError = document.createElement('div');
+                genericError.className = 'generic-error';
+                genericError.id = 'genericError';
+                document.querySelector('.form-group').appendChild(genericError);
+            }
+            genericError.textContent = message;
+        }
+
+        // Form validation and submission function
+        function validateForm(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get form input elements
+            const username = document.getElementById('username');
+            const password = document.getElementById('password');
+            const usernameError = document.getElementById('usernameError');
+            const passwordError = document.getElementById('passwordError');
+            let valid = true;
+
+            // Clear previous errors
+            clearErrors();
+
+            // Validate Username
+            if (username.value.trim() === '') {
+                username.style.borderColor = 'red';
+                usernameError.textContent = 'Username cannot be empty.';
+                valid = false;
+            }
+
+            // Validate Password
+            if (password.value.trim() === '') {
+                password.style.borderColor = 'red';
+                passwordError.textContent = 'Password cannot be empty.';
+                valid = false;
+            }
+
+            // If validation passes, make the AJAX request
+            if (valid) {
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', '/login', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+                // Handling response from the server
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {  // Check if the request is complete
+                        console.log(`Status: ${xhr.status}`);  // Log status to the console
+                        console.log(`Response Text: ${xhr.responseText}`);  // Log response text
+
+                        if (xhr.status === 200) {
+                            // Successful login
+                            localStorage.setItem('username', username.value);
+                            // Check if profile image exists in localStorage
+                            if (!localStorage.getItem('profileImage')) {
+                                // If no image exists, set default image
+                                localStorage.setItem('profileImage', './Profile/imgs/user.png');
+                            }
+
+                            window.location.href = 'progress_tracker.html'; // Redirect on success
+                        } else if (xhr.status === 401) {  // Server returned 401 Unauthorized
+                            try {
+                                const response = JSON.parse(xhr.responseText);
+
+                                // Clear previous errors
+                                clearErrors();
+
+                                // Display specific error messages based on the response
+                                if (response.message === 'Username does not exist') {
+                                    username.style.borderColor = 'red';
+                                    usernameError.textContent = response.message;
+                                } else if (response.message === 'Password is incorrect') {
+                                    password.style.borderColor = 'red';
+                                    passwordError.textContent = response.message;
+                                } else {
+                                    // Handle other messages as a generic error
+                                    displayGenericError(response.message);
+                                    username.style.borderColor = 'red';  // Highlight username field
+                                }
+                            } catch (e) {
+                                console.error('Error parsing JSON response:', e);
+                                displayGenericError('An unexpected error occurred. Please try again.');
+                                username.style.borderColor = 'red';  // Highlight username field
+                            }
+                        } else {
+                            console.error('Unexpected error occurred:', xhr.status);
+                            displayGenericError('Unexpected error occurred. Please try again.');
+                            username.style.borderColor = 'red';  // Highlight username field
+                        }
+                    }
+                };
+
+                // Send the request with the form data
+                xhr.send(`username=${encodeURIComponent(username.value)}&password=${encodeURIComponent(password.value)}`);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="cards">
+        <div class="hoverarea">
+            <img src="./imgs/trees.png" class="img-tree--left" alt="Left tree" /> 
+            <img src="./imgs/trees.png" class="img-tree--right" alt="Right tree" /> 
+            <div class="card card-camping">
+                <h2>Login</h2>
+                <form onsubmit="validateForm(event)">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                        <div id="usernameError" class="error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                        <div id="passwordError" class="error"></div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn">Login</button>
+                    </div>
+                </form>
+                <div class="login-links">
+                    <span class="login-link-left">
+                        <a href="forgot_password.html">Change Password?</a>
+                    </span>
+                    <span class="login-link-right">
+                        <span class="not-a-member">Not a member?</span>
+                        <a href="register.html" class="register-link">Register</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

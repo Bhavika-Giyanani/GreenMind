@@ -1,0 +1,696 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+nav {
+  z-index: 99;
+}
+
+ul.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+  background-color: #023b1e;
+  height: 100vh;
+  width: 85px;
+}
+
+li.menu_list {
+  height: 85px;
+  width: 85px;
+  position: relative;
+}
+
+li.menu_list .front,
+a.side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.5s ease-out;
+  cursor: pointer;
+}
+
+li.menu_list .front {
+  background-color: #023b1e;
+  color: white;
+  transform-origin: 0 0;
+}
+
+a.side {
+  background-color: #048744;
+  color: #ffffff;
+  transform-origin: 0 0 70px;
+  transform: rotateY(-90deg);
+  font-family: "Super Bubble";
+  font-size: 12px;
+}
+
+li.menu_list:hover a.side {
+  transform: rotateY(0deg);
+}
+
+li.menu_list:hover .front {
+  transform: rotateY(90deg);
+}
+
+img {
+  height: 40px;
+  width: 40px;
+  margin: 7px;
+}
+
+.cont {
+  display: flex;
+}
+
+.main {
+  width: calc(
+    100vw - 85px
+  ); /* Deducting navbar width from 100% viewport width */
+  height: 100vh;
+  display: inline-block;
+  background-image: url("./imgs/Bg");
+  background-size: cover;
+}
+
+.cloud-container {
+  position: absolute;
+  top: -5%;
+  left: 47%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+}
+
+.cloud {
+  height: 200px;
+  width: 500px;
+}
+
+.level-text {
+  position: absolute;
+  top: 140px;
+  left: 40%;
+  font-size: 30px;
+  font-weight: bold;
+  color: #4c4c4c;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes moveCloud {
+  0% {
+    transform: translateX(-70%);
+  }
+  100% {
+    transform: translateX(120vw);
+  }
+}
+body {
+  overflow: hidden;
+}
+.cloud_container {
+  height: 100vh;
+  width: 99vw;
+}
+
+.cloud_1 {
+  position: absolute;
+  top: 30px;
+  left: -200px;
+  width: 300px;
+  height: 100px;
+  background: url("./Transparent_Cloud_1.png") no-repeat;
+  background-size: contain;
+  animation: moveCloud 10s linear infinite;
+}
+.cloud_2 {
+  position: absolute;
+  top: 50px;
+  left: -290px;
+  width: 300px;
+  height: 100px;
+  background: url("./Transparent_Cloud_2.png") no-repeat center center;
+  background-size: contain;
+  animation: moveCloud 10s linear 3s infinite;
+}
+
+/* .tree {
+    position: absolute;
+    bottom: 0;
+    height: 200px;
+    width: 125px;
+    left: 50%;
+    transform: translateX(-50%);
+} */
+
+#clock {
+  height: 30px;
+  width: 55px;
+}
+
+.logo {
+  margin-left: 15px;
+  height: 50px;
+  width: fit-content;
+}
+
+/* Tree div */
+.tree {
+  background-image: url("Stage1.png");
+  background-size: contain;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 42%;
+  bottom: 5%;
+  transform: translateX(-50%);
+  width: 12vw;
+  height: 20vh;
+  z-index: 2;
+  transform: scale(1);
+  filter: drop-shadow(0 0 0);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  /* animation: growAndGlow 10s ease-in-out forwards; */
+}
+
+/* Keyframes for scaling and glow effect */
+
+@keyframes growAndGlow {
+  0% {
+    background-image: url("Stage1.png"); /* Stage 1 */
+    filter: drop-shadow(0 0 0);
+  }
+  9% {
+    background-image: url("Stage2.png"); /* Stage 2 */
+    transform: scale(1.52);
+    filter: drop-shadow(0 0 0.75rem rgb(252, 252, 2));
+  }
+  18% {
+    background-image: url("Stage2.png"); /* Stage 2 */
+    transform: scale(1.52);
+    filter: drop-shadow(0 0 0);
+  }
+  27% {
+    background-image: url("Stage2.png"); /* Stage 2 */
+    filter: drop-shadow(0 0 0);
+  }
+  36% {
+    background-image: url("Stage3.png"); /* Stage 3 */
+    transform: scale(1.68);
+    filter: drop-shadow(0 0 0.75rem rgb(252, 252, 2));
+    bottom: 10%;
+  }
+  45% {
+    background-image: url("Stage3.png"); /* Stage 3 */
+    transform: scale(1.68);
+    filter: drop-shadow(0 0 0);
+    bottom: 10%;
+  }
+  54% {
+    background-image: url("Stage3.png"); /* Stage 3 */
+    filter: drop-shadow(0 0 0);
+    bottom: 10%;
+  }
+  63% {
+    background-image: url("Stage4.png"); /* Stage 4 */
+    transform: scale(1.84);
+    filter: drop-shadow(0 0 0.75rem rgb(252, 252, 2));
+    bottom: 10%;
+  }
+  72% {
+    background-image: url("Stage4.png"); /* Stage 4 */
+    transform: scale(1.84);
+    filter: drop-shadow(0 0 0);
+    height: 30vh;
+    bottom: 10%;
+  }
+  81% {
+    background-image: url("Stage4.png"); /* Stage 4 */
+    filter: drop-shadow(0 0 0);
+    height: 30vh;
+    bottom: 10%;
+  }
+  90% {
+    background-image: url("Stage5.png"); /* Stage 5 */
+    transform: scale(2);
+    filter: drop-shadow(0 0 0.75rem rgb(252, 252, 2));
+    height: 35vh;
+    bottom: 10%;
+  }
+  100% {
+    background-image: url("Stage5.png"); /* Stage 5 */
+    transform: scale(2);
+    filter: drop-shadow(0 0 0);
+    height: 50vh;
+    bottom: 25%;
+  }
+}
+
+.main {
+  width: calc(100vw - 85px);
+  height: 100vh;
+  display: inline-block;
+  background-image: url("./imgs/Bg.jpg");
+  background-size: cover;
+  position: relative; /* To contain absolutely positioned elements like the overlay */
+  overflow: hidden;
+}
+
+/* Dark overlay */
+.background-overlay {
+  position: fixed; /* Overlay covers entire viewport without affecting elements inside .main */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent dark background */
+  pointer-events: none; /* Ensures it's non-interactive */
+  z-index: 1; /* Sits behind content, but over the background */
+}
+
+/* Ensure tree, zen, and cloud keep their original positions and are above the overlay */
+.tree,
+.zen,
+.cloud-container {
+  z-index: 2; /* Stays above the background-overlay */
+  /* Keep any original positioning like static or absolute */
+}
+
+@keyframes moveUpAndFadeOut {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  70% {
+    top: -50%;
+    opacity: 0.7;
+  }
+  100% {
+    top: -100%;
+    opacity: 0;
+  }
+}
+
+/* .cloud-container{
+  animation:  moveUpAndFadeOut 5s ease-in-out forwards;
+} */
+
+.cloud {
+  height: 200px;
+  width: 500px;
+}
+
+.level-text {
+  position: absolute;
+  top: 140px;
+  left: 40%;
+  font-size: 30px;
+  font-weight: bold;
+  color: #4c4c4c;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Trigger animation based on a class addition */
+.triggered-cloud-container {
+  animation: moveUpAndFadeOut 3s ease-in-out forwards;
+}
+.triggered-cloud-container-reverse {
+  animation: moveUpAndFadeOut 10s ease-in-out reverse;
+}
+
+/* Tree Stages  */
+/* During animation first remove this classes */
+/*^ Static Images of trees css */
+.stage2 {
+  transform: scale(1.52);
+}
+.stage3 {
+  transform: scale(2.28);
+  bottom: 15%;
+}
+.stage4 {
+  transform: scale(2.84);
+  bottom: 20%;
+}
+.stage5 {
+  transform: scale(3.5);
+  bottom: 20%;
+}
+
+@keyframes growTreeTillStage2 {
+  0% {
+    background-image: url("Stage1.png"); /* Stage 1 */
+    filter: drop-shadow(0 0 0);
+  }
+  50% {
+    background-image: url("Stage2.png"); /* Stage 2 */
+    transform: scale(1.52);
+    filter: drop-shadow(0 0 0.75rem rgb(252, 252, 2));
+  }
+  100% {
+    background-image: url("Stage2.png"); /* Stage 2 */
+    transform: scale(1.52);
+    filter: drop-shadow(0 0 0);
+  }
+}
+
+@keyframes growTreeTillStage3 {
+  0% {
+    background-image: url("Stage2.png"); /* Stage 2 */
+    filter: drop-shadow(0 0 0);
+  }
+  50% {
+    background-image: url("Stage3.png"); /* Stage 3 */
+    transform: scale(1.68);
+    filter: drop-shadow(0 0 0.75rem rgb(252, 252, 2));
+    bottom: 10%;
+  }
+  100% {
+    background-image: url("Stage3.png"); /* Stage 3 */
+    transform: scale(1.95);
+    filter: drop-shadow(0 0 0);
+    bottom: 10%;
+  }
+}
+@keyframes growTreeTillStage4 {
+  0% {
+    background-image: url("Stage3.png"); /* Stage 3 */
+    filter: drop-shadow(0 0 0);
+    bottom: 15%;
+  }
+  50% {
+    background-image: url("Stage4.png"); /* Stage 4 */
+    transform: scale(1.84);
+    filter: drop-shadow(0 0 0.75rem rgb(252, 252, 2));
+    bottom: 15%;
+  }
+  100% {
+    background-image: url("Stage4.png"); /* Stage 4 */
+    transform: scale(1.84);
+    filter: drop-shadow(0 0 0);
+    height: 30vh;
+    bottom: 15%;
+  }
+}
+@keyframes growTreeTillStage5 {
+  0% {
+    background-image: url("Stage4.png"); /* Stage 4 */
+    transform: scale(1.5);
+    filter: drop-shadow(0 0 0);
+    height: 30vh;
+    bottom: 10%;
+  }
+  50% {
+    background-image: url("Stage5.png"); /* Stage 5 */
+    transform: scale(1.5);
+    filter: drop-shadow(0 0 0.75rem rgb(252, 252, 2));
+    height: 35vh;
+    bottom: 10%;
+  }
+  100% {
+    background-image: url("Stage5.png"); /* Stage 5 */
+    transform: scale(2);
+    filter: drop-shadow(0 0 0);
+    height: 50vh;
+    bottom: 22%;
+  }
+}
+
+/*^ Bhavika Changed: Classes Names from .treeTransition_before_to_after .treeTransition_to_currentLevel   */
+.treeTransition_to_2 {
+  animation: growTreeTillStage2 5s forwards;
+}
+.treeTransition_to_3 {
+  animation: growTreeTillStage3 5s forwards;
+}
+.treeTransition_to_4 {
+  animation: growTreeTillStage4 5s forwards;
+}
+.treeTransition_to_5 {
+  animation: growTreeTillStage5 5s forwards;
+}
+.treeTransition_to_1 {
+  background-image: url("Stage1.png");
+}
+
+/* Use Earned Points Button */
+/*^ Utlized Point */
+
+.use-points {
+  top: 88%;
+  left: 32%;
+  z-index: 99;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  padding: 30px 20px;
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  cursor: pointer;
+  font: 36px/20px "Pingsan", sans-serif;
+  background-color: #4973ff;
+  transform: scale(0.5);
+  transition: box-shadow 0.4s ease, background-color 0.4s ease, color 0.4s ease;
+  box-shadow: 0 0 2px 0 rgba(73, 115, 255, 0.1),
+    0 0 4px 0 rgba(73, 115, 255, 0.2), 0 0 6px 0 rgba(73, 115, 255, 0.3),
+    0 0 8px 0 rgba(73, 115, 255, 0.4), 0 0 12px 0 rgba(73, 115, 255, 0.5),
+    0 0 18px 0 rgba(73, 115, 255, 0.6);
+  border: none;
+  outline: none;
+}
+
+.use-points:hover {
+  background-color: #ea3c;
+  box-shadow: 0 0 2px 0 rgba(238, 170, 51, 0.1),
+    0 0 4px 0 rgba(238, 170, 51, 0.2), 0 0 6px 0 rgba(238, 170, 51, 0.3),
+    0 0 8px 0 rgba(238, 170, 51, 0.4), 0 0 12px 0 rgba(238, 170, 51, 0.5),
+    0 0 18px 0 rgba(238, 170, 51, 0.6), 0 0 4px 0 rgba(238, 170, 51, 0.7);
+}
+
+.use-points span {
+  color: #fff;
+  letter-spacing: 3px;
+}
+
+.use-points i {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 200px;
+  background-color: inherit;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s linear, top 1s linear;
+  overflow: hidden;
+}
+
+.use-points i:before,
+.use-points i:after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -75%);
+}
+.use-points i:before {
+  border-radius: 46%;
+  background-color: rgba(20, 20, 20, 0.2);
+  animation: animate 5s linear infinite;
+}
+.use-points i:after {
+  border-radius: 40%;
+  background-color: rgba(20, 20, 20, 0.5);
+  animation: animate 10s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: translate(-50%, -75%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -75%) rotate(360deg);
+  }
+}
+
+/*^ Hiten prpgress bar */
+/* update points css */
+
+.game-container {
+  position: absolute; /* or fixed, depending on your layout */
+  top: 140px; /* Adjust as needed */
+  right: 50px; /* Adjust as needed */
+  z-index: 1000; /* Ensure this is higher than other elements */
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); */
+}
+
+h1 {
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.level-bar {
+  width: 350px;
+  height: 35px;
+  /* background-color: #444; */
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.level-progress {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb);
+  transition: width 0.5s ease-in-out;
+}
+
+.level-text {
+  position: absolute;
+  top: 55%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+  color: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb);
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+#progress-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#progress-btn:hover {
+  background-color: #45a049;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.popup1 {
+  display: none;
+  position: fixed;
+  top: 60px;
+  right: 270px;
+  width: 550px;
+  height: 500px;
+  background-image: url("./Streak1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1000;
+  animation: slideDown 0.5s ease-out;
+}
+
+.popup2 {
+  display: none;
+  position: fixed;
+  top: 60px;
+  right: 270px;
+  width: 550px;
+  height: 500px;
+  background-image: url("./Streak2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1000;
+  animation: slideDown 0.5s ease-out;
+}
+
+.popup3 {
+  display: none;
+  position: fixed;
+  top: -2px;
+  right: 310px;
+  width: 550px;
+  height: 500px;
+  background-image: url("./Final_Popup.png");
+  background-size: contain;
+  background-position: top center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1000;
+  animation: slideDown 0.5s ease-out;
+}
+
+.button1 {
+  border-radius: 50%;
+  padding: 10px;
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 20px;
+  background-image: url("Close.png");
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: none;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  background-color: transparent;
+  position: absolute;
+  top: 160px; /* Adjusted to be within the card */
+  right: 30px; /* Adjusted to be within the card */
+  z-index: 1100; /* Ensure this is above other elements */
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

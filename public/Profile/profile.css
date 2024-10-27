@@ -1,0 +1,227 @@
+.profile-card {
+  display: none;
+  position: fixed;
+  top: -60px;
+  right: 310px;
+  width: 550px;
+  height: 650px;
+  background-image: url(./imgs/ProfileCard.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  animation: slideDown 0.5s ease-out;
+  z-index: 1000;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  background-color: transparent;
+  position: absolute;
+  top: 140px; /* Adjusted to be within the card */
+  right: -10px; /* Adjusted to be within the card */
+  z-index: 1100; /* Ensure this is above other elements */
+}
+
+.close-btn {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+.profile-box-container {
+  position: relative;
+  width: 100%;
+  height: 150px; /* Adjust the height as needed */
+  margin-bottom: 320px;
+  top: 20px; /* Adjust this value to move the image down */
+}
+
+.profile-box {
+  width: 235px;
+  height: 40px;
+  position: absolute;
+  left: 37%;
+  top: 163px;
+  border-radius: 15px;
+  transform: translateX(-70%);
+  opacity: 83%;
+}
+
+.profile-heading {
+  position: absolute;
+  top: 175px; /* Adjust the position as needed */
+  left: 22%;
+  transform: translateX(-50%);
+  color: white; /* Adjust the color to match your design */
+  font-family: 'Montserrat';
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  font-size: 24px; /* Adjust the font size as needed */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Optional: Add text shadow for better readability */
+  z-index: 1100; /* Ensure this is above other elements */
+}
+
+.new-image-container {
+  text-align: center;
+  margin-top: -50px; /* Adjust this value to move the image up or down */
+}
+
+.new-image {
+  width: 100px; /* Adjust the size as needed */
+  height: auto;
+  border-radius: 50%; /* Make the image circular */
+  border: 5px solid black;
+  z-index: 1200; /* Ensure this is above other elements */
+  position: absolute;
+  top: 250px;
+  left: 220px;
+}
+
+.profile-content {
+  padding: 20px;
+  left: 180px;
+  text-align: left;
+  font-size: 20px;
+  position: relative;
+  z-index: 1000; /* Ensure this is below the header */
+  margin-top: -185px; /* Adjust this value to move the content up or down */
+}
+
+.profile-content p {
+  margin-bottom: 25px; 
+  font-family: 'Montserrat';
+}
+
+.button-1 {
+  appearance: button;
+  background-color: #2c6b2f;
+  border: solid transparent;
+  border-radius: 15px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 150px;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+.button-1:after {
+  background-clip: padding-box;
+  background-color: #197845;
+  border: solid transparent;
+  border-radius: 10px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.button-1:main,
+.button-1:focus {
+  user-select: auto;
+}
+
+.button-1:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.button-1:disabled {
+  cursor: auto;
+}
+
+.button-1:active {
+  border-width: 4px 0 0;
+  background: none;
+}
+
+@keyframes slideDown {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+.profile-pic {
+  color: transparent;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+  transform: translateY(-170px)
+}
+
+.profile-pic input {
+  display: none;
+}
+
+.profile-pic img {
+  position: absolute;
+  object-fit: cover;
+  width: 165px; /* Circle size */
+  height: 165px;
+  box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35); /* Shadow */
+  border-radius: 50%; /* Circular border */
+  border: 5px solid black; /* Solid black border */
+  z-index: 0;
+}
+
+.profile-pic .-label {
+  cursor: pointer;
+  height: 165px;
+  width: 165px;
+}
+
+.profile-pic:hover .-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 50%;
+  z-index: 10000;
+  color: rgb(250, 250, 250); /* Font color */
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 50%;
+}
+
+.profile-pic span {
+  display: inline-flex;
+  padding: 0.2em;
+  height: 2em;
+}
+
+

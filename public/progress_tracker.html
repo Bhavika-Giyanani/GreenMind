@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="./ProgressTracker/progress_tracker.css" />
+    <link id ="zen_stylesheet" rel="stylesheet" href="./ZenGreet/Zen_Greets.css" />
+    <link rel="stylesheet" href="./ProgressTracker/rain.css" />
+    <!-- <link rel="stylesheet" href="./ProgressTracker/confetti.css" /> -->
+  </head>
+  <body>
+    <div class="cont">
+      <nav>
+        <ul class="menu">
+          <li class="menu_list">
+            <span class="front fas"
+              ><img src="./imgs/icons/Profile.png"
+            /></span>
+            <a href="#" class="side" id="profile-link">Profile</a>
+          </li>
+          <li>&nbsp;</li>
+          <li>&nbsp;</li>
+          <li>&nbsp;</li>
+          <!-- <li>&nbsp;</li> -->
+          <!-- <li>&nbsp;</li> -->
+
+          <li class="menu_list">
+            <span class="front fas"><img src="./imgs/icons/Home.png" /></span>
+            <a href="./progress_tracker.html" class="side">Home</a>
+          </li>
+          <li class="menu_list">
+            <span class="front fas"><img src="./imgs/icons/Book.png" /></span>
+            <a href="./selfGrowth.html" class="side">Self-Growth</a>
+          </li>
+          <li class="menu_list">
+            <span class="front fas"
+              ><img src="./imgs/icons/Clock.png" id="clock"
+            /></span>
+            <a href="./pomo.html" class="side">Pomodoro Timer</a>
+          </li>
+          <li class="menu_list">
+            <span class="front fas"
+              ><img src="./imgs/icons/Meditation.png"
+            /></span>
+            <a href="./meditate.html" class="side">Meditation</a>
+          </li>
+          <li>&nbsp;</li>
+          <li>&nbsp;</li>
+          <li>&nbsp;</li>
+          <li>&nbsp;</li>
+          <!-- <li>&nbsp;</li> -->
+          <!-- <li>&nbsp;</li> -->
+
+          <li class="menu_list">
+            <span><img src="./imgs/icons/Logo.png" class="logo" /></span>
+          </li>
+        </ul>
+      </nav>
+      <div class="main" style="background-image: url('./imgs/Bg.jpg')">
+        <div id="background-overlay"></div>
+        <div class="back-row-toggle splat-toggle">
+          <div class="rain front-row"></div>
+          <div class="rain back-row"></div>
+        </div>
+        <!-- <div id="confetti"></div> -->
+        <div class="cloud-container">
+          <img src="./imgs/Cloud.png" alt="Static Cloud" class="cloud" />
+          <!-- update points  -->
+          <div class="game-container">
+         
+            <div class="level-bar">
+              
+                <div class="level-progress"></div>
+                <!-- <div class="level-text">Level 1 - 0%</div> -->
+            </div>
+            <!-- <h1 id ='tp'>Total Points : </h1> -->
+            <!-- <button class="use-points">
+              <span>Utilise Points</span>
+              <i></i>
+          </button> -->
+        </div>
+          <!-- update points  -->
+          <div class="level-text">Level 1 - 0%</div>
+        </div>
+
+        <!-- Tree Image -->
+        <!-- <img src="./imgs/Stage1.png" alt="Tree" class="tree"> -->
+        <div class="tree" id="tree">
+        </div>
+        <button class="use-points">
+          <span>Utilise Points</span>
+          <i></i>
+      </button>
+
+        <!-- Animated Cloud Container -->
+        <div class="cloud_container">
+          <div class="cloud_1"></div>
+          <div class="cloud_2"></div>
+
+
+          
+        </div>
+
+      <!-- streak popup  -->
+      <div id="streak-popup1" class="popup1">
+        <div class="header">
+         <input type="submit" class="button1" onclick=" return closePopup1()" value="">
+        </div> 
+      </div>
+
+      <div id="streak-popup2" class="popup2"></div>
+        <div class="header">
+        <!-- <input type="submit" class="button1" onclick=" return closePopup2()" value="">-->
+        </div> 
+      </div>
+
+      <div id="final-popup1" class="popup3"></div>
+        <!-- <div class="header">
+         <input type="submit" class="button1" onclick=" return closePopup3()" value=""> -->
+        </div> 
+      </div>
+
+        <div class="zen"></div>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script id="zen_script" src="./ZenGreet/Zen_Greets.js"></script>
+    <script src="./Profile/profile.js"></script>
+    <!-- <script id="confetti_script"></script> -->
+    <script src="./ProgressTracker/progress_tracker.js"></script>
+    <!-- <script id="rain_script"></script> -->
+    <!-- src="./ProgressTracker/rain.js"-->
+  </body>
+</html>

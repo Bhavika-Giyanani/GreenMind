@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Green Mind</title>
+    <link rel="stylesheet" href="splash.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="cont">
+        <div id="logo">
+          <object type="image/svg+xml" data="logo.svg"></object>
+        </div>
+        <h1 class="tracking-in-contract-bck-bottom">
+          <span class="green"><span class="big1">G</span>reen</span
+          ><span class="big2">M</span>ind
+        </h1>
+        <h2 class="tracking-in-contract-bck-bottom">
+          Grow Ethically, Plant Sustainably
+        </h2>
+      </div>
+    </div>
+    <script>
+      // Redirect to the registration page after 3.25 seconds
+      localStorage.clear()
+      setTimeout(() => {
+        window.location.href = '/register';
+      }, 3250); // 3.25 seconds
+    </script>
+  </body>
+</html>

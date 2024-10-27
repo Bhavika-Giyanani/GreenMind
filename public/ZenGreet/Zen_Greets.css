@@ -1,0 +1,30 @@
+body {
+    background-color: rgba(0, 0, 0, 0.528);
+  }
+  .zen {
+    background: url("Zen_Greets.png");
+    width: 576px; /*Frame Width */
+    height: 574px; /*Frame Height */
+    animation: greet 6s steps(52) infinite; /* 52 Frames are there in Zen_Greets.png*/
+    transform: scale(0.35); /* Size of Zen */
+    transform-origin: top left;
+
+    position: absolute;
+    right: -40%;
+    top: 98%;
+    
+    transform: translate(-50%, -50%) scale(0.35) /* Centering the element */
+  }
+
+  @keyframes greet {
+    100% {
+      background-position: -29962px;
+    }
+  }
+
+  .zen-tooltip {
+    text-align: center;
+    font-size: 16px; /* Adjust font size as desired */
+    color: white; /* Set the text color */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }

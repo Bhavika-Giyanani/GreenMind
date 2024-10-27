@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MeditationSpot</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="./MeditationSpot/styles.css">
+  <link rel="stylesheet" href="./MeditationSpot/Zen_Meditate.css" />
+</head>
+<body style="overflow: hidden;">
+    
+<div class="body1">
+  <div class="cont">
+    <nav>
+        <ul class="menu">
+            <li class="menu_list">
+                <span class="front fas"><img src="./imgs/icons/Profile.png"></span>
+                <a href="#" class="side" id="profile-link">Profile</a>
+            </li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <!-- <li>&nbsp;</li>
+            <li>&nbsp;</li> -->
+            
+            <li class="menu_list">
+                <span class="front fas"><img src="./imgs/icons/Home.png"></span>
+                <a href="./progress_tracker.html" class="side">Home</a>
+            </li>
+            <li class="menu_list">
+                <span class="front fas"><img src="./imgs/icons/Book.png"></span>
+                <a href="./selfGrowth.html" class="side">Self-Growth</a>
+            </li>
+            <li class="menu_list">
+                <span class="front fas"><img src="./imgs/icons/Clock.png" id="clock"></span>
+                <a href="./pomo.html" class="side">Pomodoro Timer</a>
+            </li>
+            <li class="menu_list">
+                <span class="front fas"><img src="./imgs/icons/Meditation.png"></span>
+                <a href="./meditate.html" class="side">Meditation</a>
+            </li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <!-- <li>&nbsp;</li>
+            <li>&nbsp;</li> -->
+            
+            
+            <li class="menu_list">
+                <span ><img src="./imgs/icons/Logo.png" class="logo"></span>
+                
+            </li>
+        </ul>
+    </nav>
+    <div class="main">
+      <div class="board">
+        <div class="board_img swing-in-top-fwd">
+        <h1>Meditation Spot</h1>
+        <div class="container">
+            <div class="tabs">
+                <button class="tab" onclick="setActiveTab('guided')" id="guidedTab">Guided Meditation</button>
+                <button class="tab" onclick="setActiveTab('unguided')" id="unguidedTab">Unguided Meditation</button>
+            </div>
+        
+            <div id="timerContainer">
+                <!-- Unguided Meditation Tab -->
+                <div id="unguided" class="timer active">
+                    <div class="scrollable-container" id="songList">
+                        <div class="meditation-card" data-sound="./MeditationSpot/unguided/songs/1.mp3">
+                            <img src="./MeditationSpot/unguided/covers/15.jpeg" alt=" Meditation">
+                            <p>Waterfall</p>
+                        </div>
+                        <div class="meditation-card" data-sound="./MeditationSpot/unguided/songs/2.mp3">
+                            <img src="./MeditationSpot/unguided/covers/16.jpeg" alt=" Meditation">
+                            <p>Piano</p>
+                        </div>
+                        <div class="meditation-card" data-sound="./MeditationSpot/unguided/songs/3.mp3">
+                            <img src="./MeditationSpot/unguided/covers/17.jpeg" alt=" Meditation">
+                            <p>Rainfall</p>
+                            
+                        </div>
+                        <div class="meditation-card" data-sound="./MeditationSpot/unguided/songs/4.mp3">
+                            <img src="./MeditationSpot/unguided/covers/18.jpeg" alt=" Meditation">
+                            <p>Nature</p>
+                        </div>
+                        <div class="meditation-card" data-sound="./MeditationSpot/unguided/songs/5.mp3">
+                            <img src="./MeditationSpot/unguided/covers/19.jpeg" alt=" Meditation">
+                            <p>Birds</p>
+                        </div>
+                        <div class="meditation-card" data-sound="./MeditationSpot/unguided/songs/6.mp3">
+                            <img src="./MeditationSpot/unguided/covers/1.jpg" alt=" Meditation">
+                            <p>Nature Song</p>
+                        </div>
+                        <div class="meditation-card" data-sound="./MeditationSpot/unguided/songs/3.mp3">
+                            <img src="./MeditationSpot/unguided/covers/2.jpg" alt=" Meditation">
+                            <p>Flute</p>
+                            
+                        </div>
+                        <div class="meditation-card" data-sound="./MeditationSpot/unguided/songs/4.mp3">
+                            <img src="./MeditationSpot/unguided/covers/3.jpg" alt=" Meditation">
+                            <p>Guitar</p>
+                        </div>
+                        <div class="meditation-card" data-sound="./MeditationSpot/unguided/songs/5.mp3">
+                            <img src="./MeditationSpot/unguided/covers/4.jpg" alt=" Meditation">
+                            <p>Handspan</p>
+                        </div>
+                        <div class="meditation-card" data-sound="./MeditationSpot/unguided/songs/6.mp3">
+                            <img src="./MeditationSpot/unguided/covers/5.jpg" alt=" Meditation">
+                            <p>Water</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Guided Meditation Tab -->
+                <div id="guided" class="timer">
+                    <div class="scrollable-container" id="songList">
+                        <div class="meditation-card" data-sound="./MeditationSpot/guided/songs/1.mp3">
+                            <img src="./MeditationSpot/guided/covers/11.jpeg" alt="Calm Ocean">
+                            <p>Non-Judgemental</p>
+                        </div>
+                        <div class="meditation-card" data-sound="./MeditationSpot/guided/songs/2.mp3">
+                            <img src="./MeditationSpot/guided/covers/12.jpeg" alt="nature">
+                            <p>Brave Explorer</p>
+                        </div>
+                        <div class="meditation-card" data-sound="./MeditationSpot/guided/songs/3.mp3">
+                            <img src="./MeditationSpot/guided/covers/13.jpeg" alt="rain">
+                            <p>Calm Corner</p>
+                        </div>
+                        <div class="meditation-card" data-sound="./MeditationSpot/guided/songs/4.mp3">
+                            <img src="./MeditationSpot/guided/covers/14.jpeg" alt="Meditation">
+                            <p>Mindful living</p>
+                        </div>
+                        <div class="meditation-card" data-sound="./MeditationSpot/guided/songs/5.mp3">
+                            <img src="./MeditationSpot/guided/covers/4.jpg" alt="Peaceful Piano">
+                            <p>Peaceful Piano</p>
+                        </div>
+                        <div class="meditation-card" data-sound="./MeditationSpot/guided/songs/6.mp3">
+                            <img src="./MeditationSpot/guided/covers/2.jpg" alt="Calm Ocean">
+                            <p>Happy Heart</p>
+                        </div>
+						<div class="meditation-card" data-sound="./MeditationSpot/guided/songs/1.mp3">
+                            <img src="./MeditationSpot/guided/covers/3.jpg" alt="Calm Ocean">
+                            <p>Calm Ocean</p>
+                        </div>
+                        <div class="meditation-card" data-sound="./MeditationSpot/guided/songs/2.mp3">
+                            <img src="./MeditationSpot/guided/covers/1.jpg" alt="nature">
+                            <p>Negative Emotions</p>
+                        </div>
+                        <div class="meditation-card" data-sound="./MeditationSpot/guided/songs/3.mp3">
+                            <img src="./MeditationSpot/guided/covers/5.jpg" alt="rain">
+                            <p>Calm Corner</p>
+                        </div>
+                        <div class="meditation-card" data-sound="./MeditationSpot/guided/songs/5.mp3">
+                            <img src="./MeditationSpot/guided/covers/6.jpg" alt="Meditation">
+                            <p>Vipassan</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="meditationPlayer" style="display: none;">
+                    <img id="selectedMeditationImage" src="" alt="Meditation Image" style="height: 180px; width: 180px; padding: 7px; border-radius: 30px;">
+                    <div id="progressBarContainer">
+                        <input type="range" id="progressBar" min="0" max="100" value="0" step="0.1" style="width: 100%;">
+                    </div>
+                    <div id="musicControls">
+                        <div class="icon-container" id="backwardBtn">
+                            <i class="fas fa-backward"></i>
+                        </div>
+                        <div class="icon-container" id="playPauseBtn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="icon-container" id="forwardBtn">
+                            <i class="fas fa-forward"></i>
+                        </div>
+                        <div class="icon-container" id="backBtn">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                    </div>
+                </div>
+            
+                            <!-- Audio Task -->
+                <div id="task" class="task">
+                    <audio id="audioTask" controls>
+                        <source src="your-audio.mp3" type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+
+                
+
+                 
+        </div>
+
+
+        <!-- streak popup  -->
+     <div id="streak-popup" class="popup">
+        <div class="header">
+        <input type="submit" class="button" onclick=" return closePopup()" value=""></div>
+      </div>
+        
+    </div>
+
+     
+
+
+      
+          
+        </div>
+    <div class="zen"></div>
+        
+  </div>
+</div>
+</div>
+</div>
+<script src="./MeditationSpot/script.js"></script>
+<script src="./Profile/profile.js"></script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+          <script src="https://unpkg.com/tippy.js@6"></script>
+          <script src="./MeditationSpot/Zen_Meditate.js"></script>
+</body>
+</html>

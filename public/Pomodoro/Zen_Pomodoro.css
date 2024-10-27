@@ -1,0 +1,29 @@
+body {
+  background-color: rgba(0, 0, 0, 0.484);
+}
+.zen {
+  background: url("Zen_Pomodoro.png");
+  width: 342px; /*Frame Width */
+  height: 358px; /*Frame Height */
+  animation: hold_clock 6s steps(52) infinite; /* 52 Frames are there in Zen_Greets.png*/
+  transform: scale(0.55); /* Size of Zen */
+  transform-origin: top left;
+
+  position: absolute;
+  top: 85%;
+  left: 95%;
+  transform: translate(-50%, -50%) scale(0.55); /* Centering the element */
+}
+
+@keyframes hold_clock {
+  100% {
+    background-position: -17784px;
+  }
+}
+.zen-tooltip {
+  text-align: center;
+  font-size: 16px; /* Adjust font size as desired */
+  color: white; /* Set the text color */
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}

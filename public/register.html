@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Register</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./main.css'>
+    <style>
+        .error {
+            color: red;
+            font-size: 0.8em;
+        }
+    </style>
+    <script>
+        function validateForm(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get form elements
+    const username = document.getElementById('username');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const usernameError = document.getElementById('usernameError');
+    const emailError = document.getElementById('emailError');
+    const passwordError = document.getElementById('passwordError');
+    let valid = true;
+
+    // Clear previous errors
+    usernameError.textContent = '';
+    emailError.textContent = '';
+    passwordError.textContent = '';
+
+    // Username validation
+    if (username.value.trim() === '') {
+        username.style.borderColor = 'red';
+        usernameError.textContent = 'Username cannot be empty.';
+        valid = false;
+    } else {
+        username.style.borderColor = '';
+    }
+
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email.value)) {
+        email.style.borderColor = 'red';
+        emailError.textContent = 'Invalid email address.';
+        valid = false;
+    } else {
+        email.style.borderColor = '';
+    }
+
+    // Password validation
+    const passwordPattern = /^(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}$/;
+    if (!passwordPattern.test(password.value)) {
+        password.style.borderColor = 'red';
+        passwordError.textContent = 'Password must be 6 characters, 1 number, 1 special character.';
+        valid = false;
+    } else {
+        password.style.borderColor = '';
+    }
+
+    // If valid, submit the form via AJAX
+    if (valid) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/submit', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    alert('Registered successfully!');
+                    window.location.href = 'login.html';
+                } else {
+                    const response = JSON.parse(xhr.responseText);
+                    response.errors.forEach(error => {
+                        if (error.includes('Username')) {
+                            username.style.borderColor = 'red';
+                            usernameError.textContent = error;
+                        } else if (error.includes('Email')) {
+                            email.style.borderColor = 'red';
+                            emailError.textContent = error;
+                        } else if (error.includes('Password')) {
+                            password.style.borderColor = 'red';
+                            passwordError.textContent = error;
+                        }
+                    });
+                }
+            }
+        };
+        xhr.send(`username=${username.value}&email=${email.value}&password=${password.value}`);
+    }
+}
+    </script>
+</head>
+<body>
+    <div class="cards">
+        <div class="hoverarea">
+            <img src="./imgs/trees.png" class="img-tree--left" alt="" /> 
+            <img src="./imgs/trees.png" class="img-tree--right" alt="" /> 
+            <div class="card card-camping">
+                <h2>Register</h2>
+                <form onsubmit="validateForm(event)">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                        <div id="usernameError" class="error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                        <div id="emailError" class="error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                        <div id="passwordError" class="error"></div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn">Register</button>
+                    </div>
+                </form>
+                <p>Already a member? <a href="login.html">Login</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

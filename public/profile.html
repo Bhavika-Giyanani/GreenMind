@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Profile/profile.css" />
+    <title>Profile Card</title>
+</head>
+<body>
+    <div id="profile-card" class="profile-card">
+        <div class="profile-header">
+            <img src="./Profile/imgs/Close.png" class="close-btn" id="close-profile" alt="Close" aria-label="Close Profile" />
+        </div>
+        <div class="profile-box-container">
+            <img src="./Profile/imgs/ProfileBox.png" class="profile-box" alt="Profile Box" />
+            <h2 class="profile-heading">PROFILE</h2>
+        </div>
+        <div class="new-image-container">
+            <div class="profile-pic">
+                <label class="-label" for="file">
+                  <span class="glyphicon glyphicon-camera"></span>
+                  <span>Change Image</span>
+                </label>
+                <input id="file" type="file" name ="file" onchange="loadFile(event)" accept="image/*" />
+                <img src="./Profile/imgs/user.png" id="output" alt="Profile Image" width="165" />
+              </div>
+        </div>
+        <div class="profile-content">
+            <p>Username: <span id="profile-username"></span></p>
+            <p>Levels Completed: <span id="levels-completed"></span></p>
+            <p>Trees Grown: <span id="trees-grown"></span></p>
+            <button id="logout-btn" class="button-1" aria-label="Logout">Logout</button>
+        </div>
+    </div>
+    <script src="./Profile/profile.js"></script>
+</body>
+</html>
